@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Eilco'mmande</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+
+    <h1>Bienvenue chez Eilco'mmande</h1>
+
+    <div id="menu">
+        <div class="produit">
+            <h3>Big Mac</h3>
+            <p>Prix : 5€</p>
+            <button onclick="ajouterAuPanier('Big Mac',5)">Ajouter au panier</button>
+        
+            <h3>Frites</h3>
+            <p>12 €</p>
+            <button onclick="ajouterAuPanier('Frites',12)">Ajouter au panier</button>
+        </div>
+    </div>
+
+    <div id="panier">
+        <h2>Votre Commande</h2>
+        
+        <ul id="liste-commande"></ul>
+        
+        <p>Total : <span id="prix-total">0</span> €</p>
+    </div>
+
+
+<script>
+let total = 0; // Initialisation du panier à 0€ 
+
+function ajouterAuPanier(nomProduit,nouveauPrix) {
+    // 1. On ajoute 5 au total
+    total = total + nouveauPrix; 
+
+    // 2. On va chercher l'étiquette "prix-total" dans le HTML
+    // 3. On remplace son texte par la nouvelle valeur de 'total'
+    document.getElementById("prix-total").innerText = total;
+    
+    let nouvelleLigne = document.createElement("li");   
+    // 2. On écrit le nom et le prix à l'intérieur de ce <li>
+    nouvelleLigne.innerText =nomProduit + " - " + nouveauPrix + "€";
+
+    // 3. On "accroche" ce <li> dans notre liste <ul> (le sac)
+    document.getElementById("liste-commande").appendChild(nouvelleLigne);
+}
+</script>
+</body>
+</html>

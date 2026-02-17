@@ -1,0 +1,33 @@
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #27251F; /* Le noir de McDo */
+        color: white;
+        text-align: center;
+    }
+
+    .produit {
+        background-color: white;
+        color: black;
+        border-radius: 15px; /* Pour faire des bords arrondis */
+        padding: 20px; /*# espace entre l'objet et le contenu --> papier bulle*/
+        width: 200px; /*# largeur de l'objet*/
+        margin: 20px auto; /*/distance entre les objets --> distance de sécurité entre voiture*/
+        border: 4px solid #FFBC0D;
+    }
+
+
+    button {
+        background-color: #DB0007; /* Le rouge McDo */
+        color: white;
+        border: none;
+        padding: 50px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #ff0000; /* Change de couleur au survol */
+    }
+</style>
