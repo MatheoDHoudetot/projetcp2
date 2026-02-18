@@ -19,9 +19,14 @@ void loop() {
 
 
 <?php
-$data1 = $_GET["data1"];
-$data2 = $_GET["data2"];
+$data = ["temp"=>0, "hum"=>0];
 
-file_put_contents("data.txt", "$data1,$data2\n", FILE_APPEND);
-echo "OK";
+if (file_exists("data.json")) {
+    $data = json_decode(file_get_contents("data.json"), true);
+}
+
+if (isset($_GET["temp"])) $data["temp"] = $_GET["temp"];
+if (isset($_GET["hum"]))  $data["hum"]  = $_GET["hum"];
+
+file_put_contents("data.json", json_encode($data));
 ?>

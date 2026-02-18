@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Eilco'mmande</title>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
+
 <body>
 
     <h1>Bienvenue chez Eilco'</h1>
@@ -13,40 +15,76 @@
             <h3>Big Mac</h3>
             <p>Prix : 5€</p>
             <button onclick="ajouterAuPanier('Big Mac',5)">Ajouter au panier</button>
-        
+
             <h3>Frites</h3>
             <p>12 €</p>
             <button onclick="ajouterAuPanier('Frites',12)">Ajouter au panier</button>
         </div>
     </div>
 
+
+
     <div id="panier">
         <h2>Votre Commande</h2>
-        
+
         <ul id="liste-commande"></ul>
-        
+
         <p>Total : <span id="prix-total">0</span> €</p>
     </div>
 
+    <!-- test de contrôle de l'esp avec le site-->
 
-<script>
-let total = 0; // Initialisation du panier à 0€ 
+    <h1>Contrôle ESP8266</h1>
 
-function ajouterAuPanier(nomProduit,nouveauPrix) {
-    // 1. On ajoute 5 au total
-    total = total + nouveauPrix; 
+    <h2>Température</h2>
+    <button onclick="setTemp(10)">10°C</button>
+    <button onclick="setTemp(20)">20°C</button>
+    <button onclick="setTemp(30)">30°C</button>
 
-    // 2. On va chercher l'étiquette "prix-total" dans le HTML
-    // 3. On remplace son texte par la nouvelle valeur de 'total'
-    document.getElementById("prix-total").innerText = total;
-    
-    let nouvelleLigne = document.createElement("li");   
-    // 2. On écrit le nom et le prix à l'intérieur de ce <li>
-    nouvelleLigne.innerText =nomProduit + " - " + nouveauPrix + "€";
+    <h2>Humidité</h2>
+    <button onclick="setHum(40)">40%</button>
+    <button onclick="setHum(60)">60%</button>
+    <button onclick="setHum(80)">80%</button>
 
-    // 3. On "accroche" ce <li> dans notre liste <ul> (le sac)
-    document.getElementById("liste-commande").appendChild(nouvelleLigne);
-}
-</script>
+    <p id="status"></p>
+
+    <script>
+        let total = 0; // Initialisation du panier à 0€ 
+
+        function ajouterAuPanier(nomProduit, nouveauPrix) {
+            // 1. On ajoute 5 au total
+            total = total + nouveauPrix;
+
+            // 2. On va chercher l'étiquette "prix-total" dans le HTML
+            // 3. On remplace son texte par la nouvelle valeur de 'total'
+            document.getElementById("prix-total").innerText = total;
+
+            let nouvelleLigne = document.createElement("li");
+            // 2. On écrit le nom et le prix à l'intérieur de ce <li>
+            nouvelleLigne.innerText = nomProduit + " - " + nouveauPrix + "€";
+
+            // 3. On "accroche" ce <li> dans notre liste <ul> (le sac)
+            document.getElementById("liste-commande").appendChild(nouvelleLigne);
+        }
+
+
+        //fonction pour le test de controle
+
+        function setTemp(val) {
+            fetch("receive.php?temp=" + val);
+            document.getElementById("status").innerText =
+                "Temp envoyée : " + val;
+        }
+
+        function setHum(val) {
+            fetch("receive.php?hum=" + val);
+            document.getElementById("status").innerText =
+                "Hum envoyée : " + val;
+        }
+
+
+
+    </script>
 </body>
+
 </html>
