@@ -26,9 +26,18 @@ Ici on peut écrire notre avancement par l'équipe et par personnes si jamais po
       grace à du javascript inclus dans le html et en passant par le ficher receive.php.
 
 
-19/02/2026 (1H):
+19/02/2026 (4H):
 
-  L'équipe:
+  L'équipe: Toujours sur les mêmes tâches.
+
+  Valentin (détails):
+  - J'ai voulu changer les nom de variables test en les remplacant par deux données binaires qui controle chacune un servo-moteur.
+    Dans le code arduino j'ai donc crée une condition si la variable VarServoXX est égale à 0 alors le servo-moteur ce met a un angle de
+    90°, attend X secondes puis ce referme et remet la variable VarServoXX à 0 dans la base de données. J'ai aussi fait 4 boutons
+    dans le html pour controler les servo-moteurs a partir du site.
+  - J'ai recu le lecteur RFID donc je l'ai cablé et tester puis
+  - J'ai crée une fonction dans le code arduino qui permet de lire l'UID des cartes puis de l'envoyer dans la base de données à la variable
+    "UIDactif".
 
 
 20/02/2026 (4H):
