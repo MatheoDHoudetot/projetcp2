@@ -6,13 +6,12 @@
     <meta charset="UTF-8">
     <title>Eilco'mmande</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 
 <body>
 
-    <h1>Bienvenue chez Eilco'</h1>
+
     <h1>Bienvenue chez Eilco'</h1>
     <div id="menu">
         <div class="produit">
@@ -56,25 +55,15 @@
 
     <p id="status"></p>
 
-    <script>
-        let total = 0; // Initialisation du panier à 0€ 
+
     <script>
         let total = 0; // Initialisation du panier à 0€ 
 
-        function ajouterAuPanier(nomProduit, nouveauPrix) {
-            // 1. On ajoute 5 au total
             total = total + nouveauPrix;
         function ajouterAuPanier(nomProduit, nouveauPrix) {
             // 1. On ajoute 5 au total
             total = total + nouveauPrix;
 
-            // 2. On va chercher l'étiquette "prix-total" dans le HTML
-            // 3. On remplace son texte par la nouvelle valeur de 'total'
-            document.getElementById("prix-total").innerText = total;
-
-            let nouvelleLigne = document.createElement("li");
-            // 2. On écrit le nom et le prix à l'intérieur de ce <li>
-            nouvelleLigne.innerText = nomProduit + " - " + nouveauPrix + "€";
             // 2. On va chercher l'étiquette "prix-total" dans le HTML
             // 3. On remplace son texte par la nouvelle valeur de 'total'
             document.getElementById("prix-total").innerText = total;
