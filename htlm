@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page ID</title>
+</head>
+<link rel="stylesheet" href="styles.css"/>
+<body>
+    <section>
+        <header>
+        <link rel="stylesheet" href="styles.css"/>
+        <div> 
+            <img src="BDE_EILCO.jpg" alt="Logo du BDE" class ="Logo_BDE">
+        </img>
+        </div>  
+    </header>
+    <main>
+        <div class="structure">
+        <h2> Identifiez-vous </h2>
+        <form action="" method="post" class="login-form">
+            <input type="text" placeholder="Numéro étudiant" class="identifiant"/>
+            <button type="submit" class="btn-valider">Valider</button>
+        </form>
+        </div>
+    </main>
+</section>
+</body>
+</html>
