@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif; /* Police globale */
+    color: #FFFFFF; /* Texte en blanc par défaut */
+    overflow: hidden; /* Pour une borne, on évite les ascenseurs */
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 100vh; /* Prend 100% de la hauteur de l'écran */
+    width: 100%;
+    /* L'image de fond (café N&B) */
+    background-image: url('cafe\ fond.png'); 
+    background-size: cover;
+    background-position: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+}
+
+/* --- Le voile sombre (Overlay) --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Un dégradé noir transparent pour faire ressortir le logo et le bouton */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+    z-index: 1; 
+}
+
+/*  Barre Supérieure  */
+.top-bar {
+    position: relative;
+    z-index: 2; /* Au-dessus de l'overlay */
+    width: 100%;
+    padding: 20px 30px;
+    text-align: right; /* Texte aligné à droite */
+    font-weight: 700; /* Gras */
+    letter-spacing: 1px; 
+    text-transform: uppercase;
+    background-color: rgba(74, 124, 150);
+}
+
+/* Partie du milieu (Logo + Bouton) */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1; /* Prend tout l'espace vertical disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre verticalement le logo et le bouton */
+    align-items: center;
+    gap: 60px; /* Espace entre le logo et le bouton */
+    padding-bottom: 80px; /* ajustement rajouté pour que ça soit mieux */
+}
+
+/*  Le Logo BDE */
+.bde-logo {
+    width: 350px;
+    height: auto;
+    border-radius: 50%; /* Si l'image n'est pas déjà ronde, cela force le cercle */
+    /* Une ombre portée douce pour le détacher du fond */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/*  Le Bouton "COMMANDER"  */
+.cta-button {
+    display: inline-block;
+    /* La couleur bleue exacte prélevée sur le logo */
+    background-color: #4A7C9D; 
+    color: #FFFFFF;
+    text-decoration: none; /* Pas de soulignement */
+    font-size: 2.5rem; /* Grande taille de texte */
+    font-weight: 800; /* Très gras pour l'impact */
+    padding: 20px 80px; /* Espace intérieur du bouton */
+    border-radius: 50px; /* Coins très arrondis pour un look moderne */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Ombre portée pour un effet de relief */
+    box-shadow: 0 8px 15px rgba(74, 124, 157, 0.4);
+    transition: all 0.3s ease; /* Transition fluide pour le survol */
+}
+
+/*   Effet au survol du bouton   */
+.cta-button:hover {
+    /* bouton plus clair */
+    background-color: #5a8eb3; 
+    /* Plus d'ombre */
+    box-shadow: 0 12px 20px rgba(74, 124, 157, 0.6);
+}
+/* Animation (étapes) */
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(74, 124, 157, 0.4);
+    }
+    50% {
+        transform: scale(1.05); /* Le bouton grossit de 5% */
+        box-shadow: 0 12px 25px rgba(74, 124, 157, 0.7); /* L'ombre s'accentue */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(74, 124, 157, 0.4);
+    }
+}
+
+/* amination du bouton */
+.cta-button {
+    animation: pulse-animation 3s infinite ease-in-out;
+}
